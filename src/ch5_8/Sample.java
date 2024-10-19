@@ -14,6 +14,10 @@ interface Predator{
     }
 }
 
+interface Barkable{
+    void bark();
+}
+
 class Animal{
     String name;
 
@@ -22,15 +26,23 @@ class Animal{
     }
 }
 
-class Tiger extends Animal implements Predator{
+class Tiger extends Animal implements Predator, Barkable {
     public String getFood(){
         return "apple";
     }
+
+    public void bark(){
+        System.out.println("어흥");
+    }
 }
 
-class Lion extends Animal implements Predator{
+class Lion extends Animal implements Predator, Barkable {
     public String getFood(){
         return "banana";
+    }
+
+    public void bark(){
+        System.out.println("으르렁");
     }
 }
 
@@ -40,16 +52,11 @@ class ZooKeeper{
     }
 }
 
-class Bouncer {
-    void barkAnimal(Animal animal){
-        if (animal instanceof Tiger){
-            System.out.println("어흥");
-        } else if (animal instanceof Lion){
-            System.out.println("으르렁");
-        }
+class Bouncer{
+    void barkAnimal(Barkable animal){
+        animal.bark();
     }
 }
-
 
 public class Sample {
     public static void main(String[] args){
