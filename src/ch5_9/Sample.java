@@ -1,13 +1,13 @@
-package ch5_8;
+package ch5_9;
 
-interface Predator{
-    String getFood();
+abstract class Predator extends Animal{
+    abstract String getFood();
 
-    default void printFood(){
+    void printFood(){
         System.out.printf("my food is %s\n", getFood());
     }
 
-    int LEG_COUNT = 4; // 인터페이스 상수
+    static int LEG_COUNT = 4; // 인터페이스 상수
 
     static int speed(){
         return LEG_COUNT * 30;
@@ -18,10 +18,6 @@ interface Barkable{
     void bark();
 }
 
-interface BarkablePredator extends Predator, Barkable{
-
-}
-
 class Animal{
     String name;
 
@@ -30,7 +26,7 @@ class Animal{
     }
 }
 
-class Tiger extends Animal implements Predator, Barkable {
+class Tiger extends Predator implements Barkable {
     public String getFood(){
         return "apple";
     }
@@ -40,7 +36,7 @@ class Tiger extends Animal implements Predator, Barkable {
     }
 }
 
-class Lion extends Animal implements BarkablePredator {
+class Lion extends Predator implements Barkable {
     public String getFood(){
         return "banana";
     }
