@@ -16,11 +16,11 @@ class Dog2 extends Animal3{
 
 class HouseDog extends Dog2{
     void sleep(){
-        System.out.println(this.name + " zzz in house");
+        System.out.println(this.name + " zzz in ch7_1.house");
     }
 
     void sleep(int hour){
-        System.out.println(this.name + " zzz in house for " + hour + " hours");
+        System.out.println(this.name + " zzz in ch7_1.house for " + hour + " hours");
     }
 }
 
